@@ -1,0 +1,798 @@
+     1→     1→"use client";
+     2→     2→
+     3→     3→import { useState, useMemo, useCallback, useEffect } from "react";
+     4→     4→import type { Design, DesignsData } from "@/lib/designs";
+     5→     5→
+     6→     6→/* ─── TopNav ─── */
+     7→     7→function TopNav({
+     8→     8→  darkMode,
+     9→     9→  setDarkMode,
+    10→    10→  searchQuery,
+    11→    11→  setSearchQuery,
+    12→    12→  setShowDetail,
+    13→    13→  setShowSubmitModal,
+    14→    14→}: {
+    15→    15→  darkMode: boolean;
+    16→    16→  setDarkMode: (v: boolean) => void;
+    17→    17→  searchQuery: string;
+    18→    18→  setSearchQuery: (v: string) => void;
+    19→    19→  setShowDetail: (v: boolean) => void;
+    20→    20→  setShowSubmitModal: (v: boolean) => void;
+    21→    21→}) {
+    22→    22→  return (
+    23→    23→    <header className="astryx-topnav">
+    24→    24→      <div className="astryx-container flex items-center justify-between h-16">
+    25→    25→        {/* Left: Logo */}
+    26→    26→        <div className="flex items-center gap-3 flex-shrink-0">
+    27→    27→          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground">
+    28→    28→            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+    29→    29→            <path d="M2 17l10 5 10-5" />
+    30→    30→            <path d="M2 12l10 5 10-5" />
+    31→    31→          </svg>
+    32→    32→          <span className="font-semibold text-foreground text-base tracking-tight hidden sm:inline">Design Showcase</span>
+    33→    33→        </div>
+    34→    34→
+    35→    35→        {/* Center: Search */}
+    36→    36→        <div className="flex-1 max-w-md mx-4 lg:mx-8">
+    37→    37→          <div className="relative">
+    38→    38→            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">⌕</span>
+    39→    39→            <input
+    40→    40→              type="text"
+    41→    41→              className="astryx-input pl-9"
+    42→    42→              placeholder="Search designs..."
+    43→    43→              value={searchQuery}
+    44→    44→              onChange={(e) => setSearchQuery(e.target.value)}
+    45→    45→            />
+    46→    46→          </div>
+    47→    47→        </div>
+    48→    48→
+    49→    49→        {/* Right: Actions */}
+    50→    50→        <div className="flex items-center gap-2 flex-shrink-0">
+    51→    51→          <button
+    52→    52→            onClick={() => setDarkMode(!darkMode)}
+    53→    53→            className="astryx-button px-3"
+    54→    54→            title="Toggle dark mode"
+    55→    55→          >
+    56→    56→            {darkMode ? (
+    57→    57→              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    58→    58→                <circle cx="12" cy="12" r="4" />
+    59→    59→                <path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" />
+    60→    60→                <path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" />
+    61→    61→                <path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+    62→    62→              </svg>
+    63→    63→            ) : (
+    64→    64→              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    65→    65→                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+    66→    66→              </svg>
+    67→    67→            )}
+    68→    68→          </button>
+    69→    69→          <button onClick={() => setShowSubmitModal(true)} className="astryx-button astryx-button-primary">
+    70→    70→            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    71→    71→              <path d="M12 5v14" /><path d="M5 12h14" />
+    72→    72→            </svg>
+    73→    73→            <span className="hidden sm:inline">Submit design</span>
+    74→    74→          </button>
+    75→    75→        </div>
+    76→    76→      </div>
+    77→    77→    </header>
+    78→    78→  );
+    79→    79→}
+    80→    80→
+    81→    81→/* ─── SideNav ─── */
+    82→    82→function SideNav({
+    83→    83→  categories,
+    84→    84→  selectedCategory,
+    85→    85→  setSelectedCategory,
+    86→    86→  selectedStyle,
+    87→    87→  setSelectedStyle,
+    88→    88→}: {
+    89→    89→  categories: Record<string, number>;
+    90→    90→  selectedCategory: string;
+    91→    91→  setSelectedCategory: (v: string) => void;
+    92→    92→  selectedStyle: string | null;
+    93→    93→  setSelectedStyle: (v: string | null) => void;
+    94→    94→}) {
+    95→    95→  return (
+    96→    96→    <aside className="hidden lg:block w-60 flex-shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto sidebar-scroll border-r border-border bg-background p-4">
+    97→    97→      {/* Categories */}
+    98→    98→      <div className="mb-6">
+    99→    99→        <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 px-1">Categories</h3>
+   100→   100→        <div className="space-y-0.5">
+   101→   101→          <button
+   102→   102→            onClick={() => setSelectedCategory("All")}
+   103→   103→            className={`w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between transition-colors ${
+   104→   104→              selectedCategory === "All"
+   105→   105→                ? "bg-secondary text-foreground font-medium"
+   106→   106→                : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+   107→   107→            }`}
+   108→   108→          >
+   109→   109→            <span>All</span>
+   110→   110→            <span className="text-xs opacity-60">{Object.values(categories).reduce((a, b) => a + b, 0)}</span>
+   111→   111→          </button>
+   112→   112→          {Object.entries(categories).map(([cat, count]) => (
+   113→   113→            <button
+   114→   114→              key={cat}
+   115→   115→              onClick={() => setSelectedCategory(cat)}
+   116→   116→              className={`w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between transition-colors ${
+   117→   117→                selectedCategory === cat
+   118→   118→                  ? "bg-secondary text-foreground font-medium"
+   119→   119→                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+   120→   120→              }`}
+   121→   121→            >
+   122→   122→              <span className="truncate">{cat}</span>
+   123→   123→              <span className="text-xs opacity-60 flex-shrink-0 ml-2">{count}</span>
+   124→   124→            </button>
+   125→   125→          ))}
+   126→   126→        </div>
+   127→   127→      </div>
+   128→   128→
+   129→   129→      {/* Style Filter */}
+   130→   130→      <div className="mb-6">
+   131→   131→        <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 px-1">Style</h3>
+   132→   132→        <div className="flex flex-wrap gap-1.5">
+   133→   133→          {["Minimal", "Dark", "Colorful", "Editorial"].map((style) => (
+   134→   134→            <button
+   135→   135→              key={style}
+   136→   136→              onClick={() => setSelectedStyle(selectedStyle === style ? null : style)}
+   137→   137→              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors border ${
+   138→   138→                selectedStyle === style
+   139→   139→                  ? "bg-foreground text-background border-foreground"
+   140→   140→                  : "bg-card text-muted-foreground border-border hover:border-foreground/30"
+   141→   141→              }`}
+   142→   142→            >
+   143→   143→              {style}
+   144→   144→            </button>
+   145→   145→          ))}
+   146→   146→        </div>
+   147→   147→      </div>
+   148→   148→
+   149→   149→      {/* Reset */}
+   150→   150→      {(selectedCategory !== "All" || selectedStyle) && (
+   151→   151→        <button
+   152→   152→          onClick={() => {
+   153→   153→            setSelectedCategory("All");
+   154→   154→            setSelectedStyle(null);
+   155→   155→          }}
+   156→   156→          className="astryx-button w-full text-sm justify-center text-muted-foreground"
+   157→   157→        >
+   158→   158→          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+   159→   159→            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+   160→   160→            <path d="M3 3v5h5" />
+   161→   161→          </svg>
+   162→   162→          Reset filters
+   163→   163→        </button>
+   164→   164→      )}
+   165→   165→    </aside>
+   166→   166→  );
+   167→   167→}
+   168→   168→
+   169→   169→/* ─── Hero Card ─── */
+   170→   170→function HeroCard({ onExplore, onRandom }: { onExplore: () => void; onRandom: () => void }) {
+   171→   171→  return (
+   172→   172→    <div className="astryx-card p-6 sm:p-8 mb-6">
+   173→   173→      <div className="max-w-2xl">
+   174→   174→        <div className="flex items-center gap-2 mb-3">
+   175→   175→          <span className="astryx-badge">Claude Design Compatible</span>
+   176→   176→          <span className="astryx-badge">Open Source</span>
+   177→   177→        </div>
+   178→   178→        <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-3">
+   179→   179→          Browse 68 production-ready design systems
+   180→   180→        </h1>
+   181→   181→        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-5">
+   182→   182→          Each DESIGN.md scaffolds a full UI in Claude Design — colors, type, components, and a working UI kit from a single markdown file. Pick a vibe, drop it in, and ship.
+   183→   183→        </p>
+   184→   184→        <div className="flex flex-wrap gap-3">
+   185→   185→          <button onClick={onExplore} className="astryx-button astryx-button-primary">
+   186→   186→            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+   187→   187→              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
+   188→   188→            </svg>
+   189→   189→            Explore
+   190→   190→          </button>
+   191→   191→          <button onClick={onRandom} className="astryx-button">
+   192→   192→            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+   193→   193→              <path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" />
+   194→   194→              <path d="m18 2 4 4-4 4" /><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" />
+   195→   195→              <path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" />
+   196→   196→              <path d="m18 14 4 4-4 4" />
+   197→   197→            </svg>
+   198→   198→            Random design
+   199→   199→          </button>
+   200→   200→        </div>
+   201→   201→      </div>
+   202→   202→    </div>
+   203→   203→  );
+   204→   204→}
+   205→   205→
+   206→   206→/* ─── Stats Row ─── */
+   207→   207→function StatsRow({ total, categories, designs }: { total: number; categories: Record<string, number>; designs: Design[] }) {
+   208→   208→  const darkCount = designs.filter((d) => d.style === "Dark").length;
+   209→   209→  const stats = [
+   210→   210→    { value: `${total}`, label: "Designs" },
+   211→   211→    { value: `${Object.keys(categories).length}`, label: "Categories" },
+   212→   212→    { value: "9-section", label: "Schema" },
+   213→   213→    { value: "MIT", label: "Licensed" },
+   214→   214→  ];
+   215→   215→  return (
+   216→   216→    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+   217→   217→      {stats.map((s) => (
+   218→   218→        <div key={s.label} className="astryx-card p-4 text-center">
+   219→   219→          <div className="text-xl sm:text-2xl font-bold text-foreground">{s.value}</div>
+   220→   220→          <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
+   221→   221→        </div>
+   222→   222→      ))}
+   223→   223→    </div>
+   224→   224→  );
+   225→   225→}
+   226→   226→
+   227→   227→/* ─── Filter Toolbar ─── */
+   228→   228→function FilterToolbar({
+   229→   229→  categories,
+   230→   230→  activeCategory,
+   231→   231→  setActiveCategory,
+   232→   232→}: {
+   233→   233→  categories: string[];
+   234→   234→  activeCategory: string;
+   235→   235→  setActiveCategory: (v: string) => void;
+   236→   236→}) {
+   237→   237→  return (
+   238→   238→    <div className="flex items-center gap-2 overflow-x-auto pb-2 mb-6 scrollbar-none" style={{ scrollbarWidth: "none" }}>
+   239→   239→      <button
+   240→   240→        onClick={() => setActiveCategory("All")}
+   241→   241→        className={`flex-shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+   242→   242→          activeCategory === "All"
+   243→   243→            ? "bg-foreground text-background"
+   244→   244→            : "bg-card text-muted-foreground border border-border hover:border-foreground/30"
+   245→   245→        }`}
+   246→   246→      >
+   247→   247→        All
+   248→   248→      </button>
+   249→   249→      {categories.map((cat) => (
+   250→   250→        <button
+   251→   251→          key={cat}
+   252→   252→          onClick={() => setActiveCategory(cat)}
+   253→   253→          className={`flex-shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
+   254→   254→            activeCategory === cat
+   255→   255→              ? "bg-foreground text-background"
+   256→   256→              : "bg-card text-muted-foreground border border-border hover:border-foreground/30"
+   257→   257→          }`}
+   258→   258→        >
+   259→   259→          {cat}
+   260→   260→        </button>
+   261→   261→      ))}
+   262→   262→    </div>
+   263→   263→  );
+   264→   264→}
+   265→   265→
+   266→   266→/* ─── Design Preview Strip ─── */
+   267→   267→function DesignPreviewStrip({ tokens, darkMode }: { tokens: Design["tokens"]; darkMode: boolean }) {
+   268→   268→  const bg = darkMode ? tokens.bgDark : tokens.bg;
+   269→   269→  const surface = darkMode ? tokens.surfaceDark : tokens.surface;
+   270→   270→  const primary = darkMode ? tokens.primaryDark : tokens.primary;
+   271→   271→  const text = darkMode ? tokens.textDark : tokens.text;
+   272→   272→  const muted = darkMode ? tokens.mutedDark : tokens.muted;
+   273→   273→  const border = darkMode ? tokens.borderDark : tokens.border;
+   274→   274→  const font = tokens.font.split(",")[0].replace(/'/g, "").trim();
+   275→   275→
+   276→   276→  return (
+   277→   277→    <div
+   278→   278→      className="design-preview-strip rounded-t-xl p-4 relative"
+   279→   279→      style={{
+   280→   280→        background: bg,
+   281→   281→        fontFamily: font,
+   282→   282→        transition: "transform 0.2s ease",
+   283→   283→      }}
+   284→   284→    >
+   285→   285→      {/* Mini layout preview */}
+   286→   286→      <div className="flex items-center gap-2 mb-3">
+   287→   287→        <div className="w-2.5 h-2.5 rounded-full" style={{ background: primary }} />
+   288→   288→        <div className="h-3 rounded-sm" style={{ background: text, width: "60px", opacity: 0.7 }} />
+   289→   289→        <div className="flex-1" />
+   290→   290→        <div className="h-2 rounded-full" style={{ background: muted, width: "40px" }} />
+   291→   291→      </div>
+   292→   292→
+   293→   293→      {/* Heading line */}
+   294→   294→      <div className="mb-3">
+   295→   295→        <div
+   296→   296→          className="text-lg font-bold leading-tight"
+   297→   297→          style={{ color: text, fontFamily: tokens.headingFont.split(",")[0].replace(/'/g, "") }}
+   298→   298→        >
+   299→   299→          The Quick Brown Fox
+   300→   300→        </div>
+   301→   301→      </div>
+   302→   302→
+   303→   303→      {/* Sample UI elements */}
+   304→   304→      <div className="flex items-center gap-2 mb-3">
+   305→   305→        <div
+   306→   306→          className="px-3 py-1.5 rounded-md text-xs font-medium"
+   307→   307→          style={{
+   308→   308→            background: primary,
+   309→   309→            color: bg === "#000000" || bg === "#0A0A0A" || bg === "#050505" || bg === "#121212" || bg === "#0C0C0C" || bg === "#0D0D0D" || bg === "#0B0E11" || bg === "#0A0A1A" || bg === "#0B0C0E" || bg === "#000000" ? "#FFFFFF" : (bg === "#FFFFFF" || bg === "#FEFEFE" || bg === "#FAFAFA" || bg === "#FDF8F4" || bg === "#FAF9F7" || bg === "#FAF8F5" ? (isLightColor(primary) ? "#111111" : "#FFFFFF") : "#FFFFFF"),
+   310→   310→            borderRadius: tokens.radius,
+   311→   311→          }}
+   312→   312→        >
+   313→   313→          Primary Action
+   314→   314→        </div>
+   315→   315→        <div
+   316→   316→          className="px-3 py-1.5 rounded-md text-xs font-medium"
+   317→   317→          style={{
+   318→   318→            background: "transparent",
+   319→   319→            color: text,
+   320→   320→            border: `1px solid ${border}`,
+   321→   321→            borderRadius: tokens.radius,
+   322→   322→          }}
+   323→   323→        >
+   324→   324→          Secondary
+   325→   325→        </div>
+   326→   326→      </div>
+   327→   327→
+   328→   328→      {/* Color dots */}
+   329→   329→      <div className="flex items-center gap-1.5">
+   330→   330→        {[primary, surface, muted, border].map((color, i) => (
+   331→   331→          <div
+   332→   332→            key={i}
+   333→   333→            className="w-4 h-4 rounded-full border"
+   334→   334→            style={{ background: color, borderColor: border }}
+   335→   335→          />
+   336→   336→        ))}
+   337→   337→      </div>
+   338→   338→    </div>
+   339→   339→  );
+   340→   340→}
+   341→   341→
+   342→   342→function isLightColor(hex: string): boolean {
+   343→   343→  const c = hex.replace("#", "");
+   344→   344→  const r = parseInt(c.substr(0, 2), 16);
+   345→   345→  const g = parseInt(c.substr(2, 2), 16);
+   346→   346→  const b = parseInt(c.substr(4, 2), 16);
+   347→   347→  return (r * 299 + g * 587 + b * 114) / 1000 > 150;
+   348→   348→}
+   349→   349→
+   350→   350→/* ─── Design Card ─── */
+   351→   351→function DesignCard({
+   352→   352→  design,
+   353→   353→  darkMode,
+   354→   354→  onSelect,
+   355→   355→}: {
+   356→   356→  design: Design;
+   357→   357→  darkMode: boolean;
+   358→   358→  onSelect: (d: Design) => void;
+   359→   359→}) {
+   360→   360→  return (
+   361→   361→    <div
+   362→   362→      className="astryx-card overflow-hidden cursor-pointer group"
+   363→   363→      onClick={() => onSelect(design)}
+   364→   364→    >
+   365→   365→      {/* Preview strip */}
+   366→   366→      <div className="design-preview-strip relative" style={{ transform: "scale(1)", transition: "transform 0.2s ease" }}>
+   367→   367→        <div
+   368→   368→          onMouseEnter={(e) => { (e.currentTarget.parentElement as HTMLElement).style.transform = "scale(1.02)"; }}
+   369→   369→          onMouseLeave={(e) => { (e.currentTarget.parentElement as HTMLElement).style.transform = "scale(1)"; }}
+   370→   370→          className="rounded-t-xl"
+   371→   371→        >
+   372→   372→          <DesignPreviewStrip tokens={design.tokens} darkMode={darkMode} />
+   373→   373→        </div>
+   374→   374→      </div>
+   375→   375→
+   376→   376→      {/* Info */}
+   377→   377→      <div className="p-4">
+   378→   378→        <div className="flex items-start justify-between gap-2 mb-1.5">
+   379→   379→          <h3 className="font-semibold text-foreground text-sm">{design.name}</h3>
+   380→   380→          <a
+   381→   381→            href={design.designMdUrl}
+   382→   382→            target="_blank"
+   383→   383→            rel="noopener noreferrer"
+   384→   384→            onClick={(e) => e.stopPropagation()}
+   385→   385→            className="flex-shrink-0 text-muted-foreground hover:text-foreground transition-colors"
+   386→   386→            title="View on getdesign.md"
+   387→   387→          >
+   388→   388→            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+   389→   389→              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+   390→   390→              <polyline points="15 3 21 3 21 9" />
+   391→   391→              <line x1="10" y1="14" x2="21" y2="3" />
+   392→   392→            </svg>
+   393→   393→          </a>
+   394→   394→        </div>
+   395→   395→        <p className="text-xs text-muted-foreground leading-relaxed mb-3 line-clamp-2">
+   396→   396→          {design.vibe.split(". ")[1] || design.vibe}
+   397→   397→        </p>
+   398→   398→        <div className="flex items-center justify-between">
+   399→   399→          <span className="astryx-badge text-[11px]">{design.category}</span>
+   400→   400→          <span className="text-[11px] text-muted-foreground">{design.style}</span>
+   401→   401→        </div>
+   402→   402→      </div>
+   403→   403→    </div>
+   404→   404→  );
+   405→   405→}
+   406→   406→
+   407→   407→/* ─── Design Detail Panel ─── */
+   408→   408→function DesignDetailPanel({
+   409→   409→  design,
+   410→   410→  darkMode,
+   411→   411→  onClose,
+   412→   412→}: {
+   413→   413→  design: Design;
+   414→   414→  darkMode: boolean;
+   415→   415→  onClose: () => void;
+   416→   416→}) {
+   417→   417→  const [activeTab, setActiveTab] = useState<"preview" | "tokens" | "download">("preview");
+   418→   418→  const t = design.tokens;
+   419→   419→
+   420→   420→  const colorEntries = [
+   421→   421→    { label: "Background", light: t.bg, dark: t.bgDark },
+   422→   422→    { label: "Surface", light: t.surface, dark: t.surfaceDark },
+   423→   423→    { label: "Primary", light: t.primary, dark: t.primaryDark },
+   424→   424→    { label: "Text", light: t.text, dark: t.textDark },
+   425→   425→    { label: "Muted", light: t.muted, dark: t.mutedDark },
+   426→   426→    { label: "Border", light: t.border, dark: t.borderDark },
+   427→   427→    { label: "Accent", light: t.accent, dark: t.accent },
+   428→   428→  ];
+   429→   429→
+   430→   430→  return (
+   431→   431→    <div className="fixed inset-0 z-50" onClick={onClose}>
+   432→   432→      {/* Overlay */}
+   433→   433→      <div className="absolute inset-0 bg-black/40 detail-overlay-enter" />
+   434→   434→      {/* Panel */}
+   435→   435→      <div
+   436→   436→        className="absolute right-0 top-0 bottom-0 w-full max-w-2xl bg-background border-l border-border overflow-y-auto detail-panel-enter"
+   437→   437→        onClick={(e) => e.stopPropagation()}
+   438→   438→      >
+   439→   439→        {/* Header */}
+   440→   440→        <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border p-4 flex items-center justify-between">
+   441→   441→          <div>
+   442→   442→            <h2 className="text-lg font-bold text-foreground">{design.name}</h2>
+   443→   443→            <p className="text-xs text-muted-foreground">{design.category} · {design.style}</p>
+   444→   444→          </div>
+   445→   445→          <div className="flex items-center gap-2">
+   446→   446→            <a href={design.designMdUrl} target="_blank" rel="noopener noreferrer" className="astryx-button astryx-button-primary text-xs">
+   447→   447→              Open in Claude Design
+   448→   448→            </a>
+   449→   449→            <button onClick={onClose} className="astryx-button px-2">
+   450→   450→              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+   451→   451→                <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+   452→   452→              </svg>
+   453→   453→            </button>
+   454→   454→          </div>
+   455→   455→        </div>
+   456→   456→
+   457→   457→        {/* Tabs */}
+   458→   458→        <div className="sticky top-[73px] z-10 bg-background/95 backdrop-blur-sm border-b border-border px-4 flex gap-1">
+   459→   459→          {(["preview", "tokens", "download"] as const).map((tab) => (
+   460→   460→            <button
+   461→   461→              key={tab}
+   462→   462→              onClick={() => setActiveTab(tab)}
+   463→   463→              className={`px-4 py-3 text-sm font-medium capitalize transition-colors border-b-2 ${
+   464→   464→                activeTab === tab
+   465→   465→                  ? "border-foreground text-foreground"
+   466→   466→                  : "border-transparent text-muted-foreground hover:text-foreground"
+   467→   467→              }`}
+   468→   468→            >
+   469→   469→              {tab}
+   470→   470→            </button>
+   471→   471→          ))}
+   472→   472→        </div>
+   473→   473→
+   474→   474→        <div className="p-4 sm:p-6">
+   475→   475→          {activeTab === "preview" && (
+   476→   476→            <div>
+   477→   477→              {/* Full live preview */}
+   478→   478→              <div className="mb-6">
+   479→   479→                <DesignPreviewStrip tokens={design.tokens} darkMode={darkMode} />
+   480→   480→              </div>
+   481→   481→              <div className="prose prose-sm dark:prose-invert max-w-none">
+   482→   482→                <h3 className="text-base font-semibold text-foreground mb-2">About this design</h3>
+   483→   483→                <p className="text-sm text-muted-foreground leading-relaxed">{design.description}</p>
+   484→   484→                <h3 className="text-base font-semibold text-foreground mt-6 mb-2">Vibe</h3>
+   485→   485→                <p className="text-sm text-muted-foreground leading-relaxed">{design.vibe}</p>
+   486→   486→              </div>
+   487→   487→            </div>
+   488→   488→          )}
+   489→   489→
+   490→   490→          {activeTab === "tokens" && (
+   491→   491→            <div>
+   492→   492→              <h3 className="text-base font-semibold text-foreground mb-4">Color Palette</h3>
+   493→   493→              <div className="space-y-3 mb-8">
+   494→   494→                {colorEntries.map(({ label, light, dark }) => (
+   495→   495→                  <div key={label} className="flex items-center gap-3">
+   496→   496→                    <div className="color-swatch" style={{ background: darkMode ? dark : light }} />
+   497→   497→                    <div className="flex-1 min-w-0">
+   498→   498→                      <div className="text-sm font-medium text-foreground">{label}</div>
+   499→   499→                      <div className="text-xs text-muted-foreground font-mono">{darkMode ? dark : light}</div>
+   500→   500→                    </div>
+   501→   501→                  </div>
+   502→   502→                ))}
+   503→   503→              </div>
+   504→   504→
+   505→   505→              <h3 className="text-base font-semibold text-foreground mb-4">Typography</h3>
+   506→   506→              <div className="space-y-3 mb-8">
+   507→   507→                {[
+   508→   508→                  { label: "Body Font", value: t.font },
+   509→   509→                  { label: "Heading Font", value: t.headingFont },
+   510→   510→                  { label: "Code Font", value: t.codeFont },
+   511→   511→                ].map(({ label, value }) => (
+   512→   512→                  <div key={label} className="flex items-center justify-between">
+   513→   513→                    <span className="text-sm text-muted-foreground">{label}</span>
+   514→   514→                    <span className="text-sm font-medium text-foreground font-mono">{value}</span>
+   515→   515→                  </div>
+   516→   516→                ))}
+   517→   517→              </div>
+   518→   518→
+   519→   519→              <h3 className="text-base font-semibold text-foreground mb-4">Radius</h3>
+   520→   520→              <div className="flex items-center gap-3">
+   521→   521→                <div className="w-12 h-12 bg-muted border border-border" style={{ borderRadius: t.radius }} />
+   522→   522→                <span className="text-sm font-mono text-foreground">{t.radius}</span>
+   523→   523→              </div>
+   524→   524→            </div>
+   525→   525→          )}
+   526→   526→
+   527→   527→          {activeTab === "download" && (
+   528→   528→            <div>
+   529→   529→              <h3 className="text-base font-semibold text-foreground mb-3">Get DESIGN.md</h3>
+   530→   530→              <p className="text-sm text-muted-foreground mb-4">
+   531→   531→                Use the npx CLI to download the DESIGN.md file directly into your project:
+   532→   532→              </p>
+   533→   533→              <div className="bg-muted rounded-lg p-4 mb-4 flex items-center justify-between gap-3">
+   534→   534→                <code className="text-sm font-mono text-foreground overflow-x-auto">
+   535→   535→                  npx getdesign@latest add {design.slug}
+   536→   536→                </code>
+   537→   537→                <button
+   538→   538→                  onClick={() => navigator.clipboard.writeText(`npx getdesign@latest add ${design.slug}`)}
+   539→   539→                  className="astryx-button px-2 flex-shrink-0 text-xs"
+   540→   540→                >
+   541→   541→                  Copy
+   542→   542→                </button>
+   543→   543→              </div>
+   544→   544→
+   545→   545→              <a
+   546→   546→                href={design.designMdUrl}
+   547→   547→                target="_blank"
+   548→   548→                rel="noopener noreferrer"
+   549→   549→                className="astryx-button w-full justify-center mb-4"
+   550→   550→              >
+   551→   551→                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+   552→   552→                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+   553→   553→                  <polyline points="7 10 12 15 17 10" />
+   554→   554→                  <line x1="12" y1="15" x2="12" y2="3" />
+   555→   555→                </svg>
+   556→   556→                View on getdesign.md
+   557→   557→              </a>
+   558→   558→
+   559→   559→              <div className="bg-muted/50 rounded-lg p-4 border border-border">
+   560→   560→                <div className="flex items-start gap-2">
+   561→   561→                  <span className="text-xs text-muted-foreground">✦</span>
+   562→   562→                  <p className="text-xs text-muted-foreground leading-relaxed">
+   563→   563→                    Independent analysis of publicly observable patterns, curated as a starting point for inspiration.
+   564→   564→                    Not affiliated with or endorsed by {design.name}; trademarks belong to their respective owners.
+   565→   565→                  </p>
+   566→   566→                </div>
+   567→   567→              </div>
+   568→   568→            </div>
+   569→   569→          )}
+   570→   570→        </div>
+   571→   571→      </div>
+   572→   572→    </div>
+   573→   573→  );
+   574→   574→}
+   575→   575→
+   576→   576→/* ─── Submit Modal ─── */
+   577→   577→function SubmitModal({ onClose }: { onClose: () => void }) {
+   578→   578→  return (
+   579→   579→    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+   580→   580→      <div className="absolute inset-0 bg-black/40 detail-overlay-enter" />
+   581→   581→      <div
+   582→   582→        className="relative bg-background border border-border rounded-2xl p-6 max-w-md w-full detail-panel-enter"
+   583→   583→        onClick={(e) => e.stopPropagation()}
+   584→   584→      >
+   585→   585→        <div className="flex items-center justify-between mb-4">
+   586→   586→          <h2 className="text-lg font-bold text-foreground">Submit a Design</h2>
+   587→   587→          <button onClick={onClose} className="astryx-button px-2">
+   588→   588→            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+   589→   589→              <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+   590→   590→            </svg>
+   591→   591→          </button>
+   592→   592→        </div>
+   593→   593→        <p className="text-sm text-muted-foreground mb-4">
+   594→   594→          Want to add a new design system to the collection? Open a PR on the{" "}
+   595→   595→          <a href="https://github.com/VoltAgent/awesome-claude-design" target="_blank" rel="noopener noreferrer" className="underline">
+   596→   596→            awesome-claude-design
+   597→   597→          </a>{" "}
+   598→   598→          repository on GitHub.
+   599→   599→        </p>
+   600→   600→        <a
+   601→   601→          href="https://github.com/VoltAgent/awesome-claude-design"
+   602→   602→          target="_blank"
+   603→   603→          rel="noopener noreferrer"
+   604→   604→          className="astryx-button astryx-button-primary w-full justify-center"
+   605→   605→        >
+   606→   606→          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+   607→   607→            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+   608→   608→          </svg>
+   609→   609→          Open GitHub
+   610→   610→        </a>
+   611→   611→      </div>
+   612→   612→    </div>
+   613→   613→  );
+   614→   614→}
+   615→   615→
+   616→   616→/* ─── Footer ─── */
+   617→   617→function Footer() {
+   618→   618→  return (
+   619→   619→    <footer className="border-t border-border mt-12 py-8 px-4">
+   620→   620→      <div className="astryx-container">
+   621→   621→        <div className="max-w-4xl mx-auto">
+   622→   622→          <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+   623→   623→            The DESIGN.md files linked from this collection are <strong>curated starting points inspired by publicly
+   624→   624→            observable design patterns</strong> on the referenced websites. They are not official design systems and are
+   625→   625→            not affiliated with, endorsed by, or sponsored by the companies named. All trademarks, brand names, logos,
+   626→   626→            and proprietary typefaces belong to their respective owners, and this showcase makes no claim of ownership
+   627→   627→            over any brand&apos;s visual identity.
+   628→   628→          </p>
+   629→   629→          <p className="text-xs text-muted-foreground leading-relaxed">
+   630→   630→            These documents exist for educational and development purposes — to give AI agents like Claude Design enough
+   631→   631→            structured context to generate consistent UI. Users are responsible for ensuring their own downstream usage
+   632→   632→            complies with the trademark, copyright, and brand-usage policies of the originating companies.
+   633→   633→          </p>
+   634→   634→          <div className="flex items-center justify-between mt-6 pt-4 border-t border-border">
+   635→   635→            <span className="text-xs text-muted-foreground">
+   636→   636→              Data source:{" "}
+   637→   637→              <a
+   638→   638→                href="https://github.com/VoltAgent/awesome-claude-design"
+   639→   639→                target="_blank"
+   640→   640→                rel="noopener noreferrer"
+   641→   641→                className="underline hover:text-foreground transition-colors"
+   642→   642→              >
+   643→   643→                VoltAgent/awesome-claude-design
+   644→   644→              </a>
+   645→   645→            </span>
+   646→   646→            <span className="text-xs text-muted-foreground">MIT Licensed</span>
+   647→   647→          </div>
+   648→   648→        </div>
+   649→   649→      </div>
+   650→   650→    </footer>
+   651→   651→  );
+   652→   652→}
+   653→   653→
+   654→   654→/* ═══════════════════════════════════════════════════
+   655→   655→   MAIN PAGE
+   656→   656→   ═══════════════════════════════════════════════════ */
+   657→   657→export default function HomePage() {
+   658→   658→  const [data, setData] = useState<DesignsData | null>(null);
+   659→   659→  const [darkMode, setDarkMode] = useState(false);
+   660→   660→  const [searchQuery, setSearchQuery] = useState("");
+   661→   661→  const [selectedCategory, setSelectedCategory] = useState("All");
+   662→   662→  const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
+   663→   663→  const [selectedDesign, setSelectedDesign] = useState<Design | null>(null);
+   664→   664→  const [showSubmitModal, setShowSubmitModal] = useState(false);
+   665→   665→
+   666→   666→  useEffect(() => {
+   667→   667→    fetch("/data/designs.json")
+   668→   668→      .then((r) => r.json())
+   669→   669→      .then(setData);
+   670→   670→  }, []);
+   671→   671→
+   672→   672→  useEffect(() => {
+   673→   673→    document.documentElement.classList.toggle("dark", darkMode);
+   674→   674→  }, [darkMode]);
+   675→   675→
+   676→   676→  const filteredDesigns = useMemo(() => {
+   677→   677→    if (!data) return [];
+   678→   678→    return data.designs.filter((d) => {
+   679→   679→      if (selectedCategory !== "All" && d.category !== selectedCategory) return false;
+   680→   680→      if (selectedStyle && d.style !== selectedStyle) return false;
+   681→   681→      if (searchQuery) {
+   682→   682→        const q = searchQuery.toLowerCase();
+   683→   683→        return (
+   684→   684→          d.name.toLowerCase().includes(q) ||
+   685→   685→          d.vibe.toLowerCase().includes(q) ||
+   686→   686→          d.category.toLowerCase().includes(q) ||
+   687→   687→          d.style.toLowerCase().includes(q)
+   688→   688→        );
+   689→   689→      }
+   690→   690→      return true;
+   691→   691→    });
+   692→   692→  }, [data, selectedCategory, selectedStyle, searchQuery]);
+   693→   693→
+   694→   694→  const handleExplore = useCallback(() => {
+   695→   695→    const grid = document.getElementById("design-grid");
+   696→   696→    if (grid) grid.scrollIntoView({ behavior: "smooth" });
+   697→   697→  }, []);
+   698→   698→
+   699→   699→  const handleRandom = useCallback(() => {
+   700→   700→    if (!data) return;
+   701→   701→    const random = data.designs[Math.floor(Math.random() * data.designs.length)];
+   702→   702→    setSelectedDesign(random);
+   703→   703→  }, [data]);
+   704→   704→
+   705→   705→  const categoryList = useMemo(() => (data ? Object.keys(data.meta.categories) : []), [data]);
+   706→   706→
+   707→   707→  if (!data) {
+   708→   708→    return (
+   709→   709→      <div className="min-h-screen flex items-center justify-center">
+   710→   710→        <div className="text-muted-foreground text-sm">Loading designs...</div>
+   711→   711→      </div>
+   712→   712→    );
+   713→   713→  }
+   714→   714→
+   715→   715→  return (
+   716→   716→    <div className="min-h-screen flex flex-col">
+   717→   717→      <TopNav
+   718→   718→        darkMode={darkMode}
+   719→   719→        setDarkMode={setDarkMode}
+   720→   720→        searchQuery={searchQuery}
+   721→   721→        setSearchQuery={setSearchQuery}
+   722→   722→        setShowDetail={() => {}}
+   723→   723→        setShowSubmitModal={setShowSubmitModal}
+   724→   724→      />
+   725→   725→
+   726→   726→      <div className="flex flex-1">
+   727→   727→        <SideNav
+   728→   728→          categories={data.meta.categories}
+   729→   729→          selectedCategory={selectedCategory}
+   730→   730→          setSelectedCategory={setSelectedCategory}
+   731→   731→          selectedStyle={selectedStyle}
+   732→   732→          setSelectedStyle={setSelectedStyle}
+   733→   733→        />
+   734→   734→
+   735→   735→        <main className="flex-1 min-w-0">
+   736→   736→          <div className="astryx-container py-6">
+   737→   737→            <HeroCard onExplore={handleExplore} onRandom={handleRandom} />
+   738→   738→            <StatsRow total={data.meta.total} categories={data.meta.categories} designs={data.designs} />
+   739→   739→            <FilterToolbar
+   740→   740→              categories={categoryList}
+   741→   741→              activeCategory={selectedCategory}
+   742→   742→              setActiveCategory={setSelectedCategory}
+   743→   743→            />
+   744→   744→
+   745→   745→            {/* Results count */}
+   746→   746→            <div className="flex items-center justify-between mb-4">
+   747→   747→              <p className="text-sm text-muted-foreground">
+   748→   748→                Showing <span className="font-medium text-foreground">{filteredDesigns.length}</span> design{filteredDesigns.length !== 1 ? "s" : ""}
+   749→   749→              </p>
+   750→   750→            </div>
+   751→   751→
+   752→   752→            {/* Grid */}
+   753→   753→            <div id="design-grid" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+   754→   754→              {filteredDesigns.map((design) => (
+   755→   755→                <DesignCard
+   756→   756→                  key={design.id}
+   757→   757→                  design={design}
+   758→   758→                  darkMode={darkMode}
+   759→   759→                  onSelect={setSelectedDesign}
+   760→   760→                />
+   761→   761→              ))}
+   762→   762→            </div>
+   763→   763→
+   764→   764→            {filteredDesigns.length === 0 && (
+   765→   765→              <div className="text-center py-16">
+   766→   766→                <p className="text-muted-foreground text-sm">No designs match your filters.</p>
+   767→   767→                <button
+   768→   768→                  onClick={() => {
+   769→   769→                    setSelectedCategory("All");
+   770→   770→                    setSelectedStyle(null);
+   771→   771→                    setSearchQuery("");
+   772→   772→                  }}
+   773→   773→                  className="astryx-button mt-3 text-sm"
+   774→   774→                >
+   775→   775→                  Clear all filters
+   776→   776→                </button>
+   777→   777→              </div>
+   778→   778→            )}
+   779→   779→          </div>
+   780→   780→
+   781→   781→          <Footer />
+   782→   782→        </main>
+   783→   783→      </div>
+   784→   784→
+   785→   785→      {/* Detail Panel */}
+   786→   786→      {selectedDesign && (
+   787→   787→        <DesignDetailPanel
+   788→   788→          design={selectedDesign}
+   789→   789→          darkMode={darkMode}
+   790→   790→          onClose={() => setSelectedDesign(null)}
+   791→   791→        />
+   792→   792→      )}
+   793→   793→
+   794→   794→      {/* Submit Modal */}
+   795→   795→      {showSubmitModal && <SubmitModal onClose={() => setShowSubmitModal(false)} />}
+   796→   796→    </div>
+   797→   797→  );
+   798→   798→}

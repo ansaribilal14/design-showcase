@@ -51,4 +51,6 @@ prompt
 
 server.log
 # Skills directory
-/skills/
+/skills/tool-results/
+scripts/repo_readme.json
+scripts/readme_raw.json

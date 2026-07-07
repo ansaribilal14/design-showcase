@@ -1,0 +1,1992 @@
+{
+  "meta": {
+    "total": 68,
+    "categories": {
+      "AI & LLM Platforms": 12,
+      "Developer Tools & IDEs": 7,
+      "Backend & DevOps": 8,
+      "Productivity & SaaS": 7,
+      "Design & Creative Tools": 6,
+      "Fintech & Crypto": 7,
+      "E-commerce & Retail": 4,
+      "Media & Consumer Tech": 11,
+      "Automotive": 6
+    },
+    "generatedAt": "2026-07-07T17:12:41Z",
+    "source": "VoltAgent/awesome-claude-design"
+  },
+  "designs": [
+    {
+      "name": "Claude",
+      "slug": "claude",
+      "category": "AI & LLM Platforms",
+      "vibe": "Warm terracotta accent, clean editorial layout",
+      "colors": [
+        "#D97757",
+        "#F5F0EB",
+        "#1A1A1A",
+        "#E8DDD5",
+        "#C4623A",
+        "#F2E8DE",
+        "#FFFFFF",
+        "#2D2520",
+        "#B85636",
+        "#F9F4F0",
+        "#3D2E24",
+        "#E6CFC1"
+      ],
+      "fonts": [
+        "Claude Sans",
+        "Inter"
+      ],
+      "backgroundColor": "#FAFAF8",
+      "style": "editorial",
+      "primaryColor": "#D97757",
+      "accentColor": "#C4623A",
+      "designMdUrl": "https://getdesign.md/claude/design-md"
+    },
+    {
+      "name": "Cohere",
+      "slug": "cohere",
+      "category": "AI & LLM Platforms",
+      "vibe": "Vibrant gradients, data-rich dashboard aesthetic",
+      "colors": [
+        "#3964FF",
+        "#5E6AD2",
+        "#7B61FF",
+        "#39D98A",
+        "#FFFFFF",
+        "#F5F5F7",
+        "#1A1A2E",
+        "#E8E8F0",
+        "#2D3BF0",
+        "#9F8FFF",
+        "#13111C",
+        "#C4C1FF"
+      ],
+      "fonts": [
+        "Inter",
+        "Söhne"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#3964FF",
+      "accentColor": "#7B61FF",
+      "designMdUrl": "https://getdesign.md/cohere/design-md"
+    },
+    {
+      "name": "ElevenLabs",
+      "slug": "elevenlabs",
+      "category": "AI & LLM Platforms",
+      "vibe": "Dark cinematic UI, audio-waveform aesthetics",
+      "colors": [
+        "#000000",
+        "#1A1A1A",
+        "#FFFFFF",
+        "#7B61FF",
+        "#A78BFA",
+        "#333333",
+        "#666666",
+        "#F5F5F5",
+        "#C4B5FD",
+        "#0D0D0D",
+        "#4C1D95",
+        "#E0E0E0"
+      ],
+      "fonts": [
+        "Inter",
+        "Satoshi"
+      ],
+      "backgroundColor": "#0A0A0A",
+      "style": "dark",
+      "primaryColor": "#7B61FF",
+      "accentColor": "#A78BFA",
+      "designMdUrl": "https://getdesign.md/elevenlabs/design-md"
+    },
+    {
+      "name": "Minimax",
+      "slug": "minimax",
+      "category": "AI & LLM Platforms",
+      "vibe": "Bold dark interface with neon accents",
+      "colors": [
+        "#0A0A0A",
+        "#1A1A1A",
+        "#00FF88",
+        "#00CC6A",
+        "#FFFFFF",
+        "#333333",
+        "#00FFAA",
+        "#111111",
+        "#222222",
+        "#666666",
+        "#00E67A",
+        "#00B35F"
+      ],
+      "fonts": [
+        "Inter",
+        "Space Grotesk"
+      ],
+      "backgroundColor": "#050505",
+      "style": "dark",
+      "primaryColor": "#00FF88",
+      "accentColor": "#00CC6A",
+      "designMdUrl": "https://getdesign.md/minimax/design-md"
+    },
+    {
+      "name": "Mistral AI",
+      "slug": "mistral-ai",
+      "category": "AI & LLM Platforms",
+      "vibe": "French-engineered minimalism, purple-toned",
+      "colors": [
+        "#F5E6E3",
+        "#E84E35",
+        "#1A1A1A",
+        "#FFFFFF",
+        "#FDF2F0",
+        "#D64028",
+        "#2D2D2D",
+        "#F9ECEB",
+        "#C43820",
+        "#F0D5D1",
+        "#8B2020",
+        "#F7E0DD"
+      ],
+      "fonts": [
+        "Mona Sans",
+        "Inter"
+      ],
+      "backgroundColor": "#FAFAF8",
+      "style": "minimal",
+      "primaryColor": "#E84E35",
+      "accentColor": "#D64028",
+      "designMdUrl": "https://getdesign.md/mistral-ai/design-md"
+    },
+    {
+      "name": "Ollama",
+      "slug": "ollama",
+      "category": "AI & LLM Platforms",
+      "vibe": "Terminal-first, monochrome simplicity",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#E5E5E5",
+        "#333333",
+        "#D4D4D4",
+        "#1A1A1A",
+        "#FAFAFA",
+        "#808080",
+        "#262626",
+        "#171717",
+        "#A3A3A3"
+      ],
+      "fonts": [
+        "JetBrains Mono",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#FFFFFF",
+      "accentColor": "#D4D4D4",
+      "designMdUrl": "https://getdesign.md/ollama/design-md"
+    },
+    {
+      "name": "OpenCode AI",
+      "slug": "opencode-ai",
+      "category": "AI & LLM Platforms",
+      "vibe": "Developer-centric dark theme",
+      "colors": [
+        "#0D1117",
+        "#161B22",
+        "#58A6FF",
+        "#C9D1D9",
+        "#8B949E",
+        "#F0F6FC",
+        "#1F6FEB",
+        "#21262D",
+        "#30363D",
+        "#388BFD",
+        "#0D419D",
+        "#1A7F37"
+      ],
+      "fonts": [
+        "JetBrains Mono",
+        "Inter"
+      ],
+      "backgroundColor": "#0D1117",
+      "style": "dark",
+      "primaryColor": "#58A6FF",
+      "accentColor": "#388BFD",
+      "designMdUrl": "https://getdesign.md/opencode-ai/design-md"
+    },
+    {
+      "name": "Replicate",
+      "slug": "replicate",
+      "category": "AI & LLM Platforms",
+      "vibe": "Clean white canvas, code-forward",
+      "colors": [
+        "#FFFFFF",
+        "#000000",
+        "#F5F5F5",
+        "#E5E5E5",
+        "#181818",
+        "#CCCCCC",
+        "#333333",
+        "#FAFAFA",
+        "#999999",
+        "#FF4F00",
+        "#666666",
+        "#1A1A1A"
+      ],
+      "fonts": [
+        "Inter",
+        "IBM Plex Mono"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#000000",
+      "accentColor": "#FF4F00",
+      "designMdUrl": "https://getdesign.md/replicate/design-md"
+    },
+    {
+      "name": "RunwayML",
+      "slug": "runwayml",
+      "category": "AI & LLM Platforms",
+      "vibe": "Cinematic dark UI, media-rich layout",
+      "colors": [
+        "#0A0A0A",
+        "#1A1A1A",
+        "#FFFFFF",
+        "#6C63FF",
+        "#5A52D5",
+        "#333333",
+        "#B8B3FF",
+        "#111111",
+        "#222222",
+        "#8888FF",
+        "#000000",
+        "#E0DEFF"
+      ],
+      "fonts": [
+        "Inter",
+        "Satoshi"
+      ],
+      "backgroundColor": "#050505",
+      "style": "dark",
+      "primaryColor": "#6C63FF",
+      "accentColor": "#8888FF",
+      "designMdUrl": "https://getdesign.md/runwayml/design-md"
+    },
+    {
+      "name": "Together AI",
+      "slug": "together-ai",
+      "category": "AI & LLM Platforms",
+      "vibe": "Technical, blueprint-style design",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#E5E5E5",
+        "#333333",
+        "#0D47A1",
+        "#42A5F5",
+        "#0A1929",
+        "#1565C0",
+        "#E3F2FD",
+        "#263238"
+      ],
+      "fonts": [
+        "Inter",
+        "IBM Plex Mono"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#0D47A1",
+      "accentColor": "#42A5F5",
+      "designMdUrl": "https://getdesign.md/together-ai/design-md"
+    },
+    {
+      "name": "VoltAgent",
+      "slug": "voltagent",
+      "category": "AI & LLM Platforms",
+      "vibe": "Void-black canvas, emerald accent, terminal-native",
+      "colors": [
+        "#000000",
+        "#0A0F0A",
+        "#10B981",
+        "#059669",
+        "#34D399",
+        "#FFFFFF",
+        "#1A2E1A",
+        "#064E3B",
+        "#D1FAE5",
+        "#111111",
+        "#222222",
+        "#6EE7B7"
+      ],
+      "fonts": [
+        "JetBrains Mono",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#10B981",
+      "accentColor": "#34D399",
+      "designMdUrl": "https://getdesign.md/voltagent/design-md"
+    },
+    {
+      "name": "xAI",
+      "slug": "xai",
+      "category": "AI & LLM Platforms",
+      "vibe": "Stark monochrome, futuristic minimalism",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#E5E5E5",
+        "#1A1A1A",
+        "#333333",
+        "#D4D4D4",
+        "#808080",
+        "#FAFAFA",
+        "#262626",
+        "#CCCCCC",
+        "#171717"
+      ],
+      "fonts": [
+        "Inter",
+        "Space Grotesk"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#FFFFFF",
+      "accentColor": "#808080",
+      "designMdUrl": "https://getdesign.md/xai/design-md"
+    },
+    {
+      "name": "Cursor",
+      "slug": "cursor",
+      "category": "Developer Tools & IDEs",
+      "vibe": "Sleek dark interface, gradient accents",
+      "colors": [
+        "#000000",
+        "#1E1E1E",
+        "#7C3AED",
+        "#A78BFA",
+        "#FFFFFF",
+        "#282828",
+        "#6D28D9",
+        "#C4B5FD",
+        "#333333",
+        "#5B21B6",
+        "#DDD6FE",
+        "#2D2D2D"
+      ],
+      "fonts": [
+        "JetBrains Mono",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#7C3AED",
+      "accentColor": "#A78BFA",
+      "designMdUrl": "https://getdesign.md/cursor/design-md"
+    },
+    {
+      "name": "Expo",
+      "slug": "expo",
+      "category": "Developer Tools & IDEs",
+      "vibe": "Dark theme, tight letter-spacing, code-centric",
+      "colors": [
+        "#000020",
+        "#0D0D2B",
+        "#FFFFFF",
+        "#1C1C3D",
+        "#7C7CFF",
+        "#ADADFF",
+        "#2D2D5E",
+        "#4A4AFF",
+        "#E0E0FF",
+        "#3A3A6B",
+        "#0A0A1A",
+        "#C0C0FF"
+      ],
+      "fonts": [
+        "Inter",
+        "JetBrains Mono"
+      ],
+      "backgroundColor": "#000020",
+      "style": "dark",
+      "primaryColor": "#FFFFFF",
+      "accentColor": "#7C7CFF",
+      "designMdUrl": "https://getdesign.md/expo/design-md"
+    },
+    {
+      "name": "Lovable",
+      "slug": "lovable",
+      "category": "Developer Tools & IDEs",
+      "vibe": "Playful gradients, friendly dev aesthetic",
+      "colors": [
+        "#6C5CE7",
+        "#A29BFE",
+        "#FD79A8",
+        "#FF6B6B",
+        "#FFFFFF",
+        "#F8F9FA",
+        "#2D3436",
+        "#DFE6E9",
+        "#E17055",
+        "#00CEC9",
+        "#FDCB6E",
+        "#636E72"
+      ],
+      "fonts": [
+        "Inter",
+        "Plus Jakarta Sans"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#6C5CE7",
+      "accentColor": "#A29BFE",
+      "designMdUrl": "https://getdesign.md/lovable/design-md"
+    },
+    {
+      "name": "Raycast",
+      "slug": "raycast",
+      "category": "Developer Tools & IDEs",
+      "vibe": "Sleek dark chrome, vibrant gradient accents",
+      "colors": [
+        "#1A1A1A",
+        "#FF6363",
+        "#FF6363",
+        "#333333",
+        "#FFFFFF",
+        "#2D2D2D",
+        "#FF8A8A",
+        "#0A0A0A",
+        "#FF4D4D",
+        "#E0E0E0",
+        "#FFB3B3",
+        "#4D4D4D"
+      ],
+      "fonts": [
+        "Inter",
+        "JetBrains Mono"
+      ],
+      "backgroundColor": "#1A1A1A",
+      "style": "dark",
+      "primaryColor": "#FF6363",
+      "accentColor": "#FF6363",
+      "designMdUrl": "https://getdesign.md/raycast/design-md"
+    },
+    {
+      "name": "Superhuman",
+      "slug": "superhuman",
+      "category": "Developer Tools & IDEs",
+      "vibe": "Premium dark UI, keyboard-first, purple glow",
+      "colors": [
+        "#0A0A0A",
+        "#1A1A2E",
+        "#7C3AED",
+        "#A78BFA",
+        "#FFFFFF",
+        "#16162A",
+        "#6D28D9",
+        "#C4B5FD",
+        "#2D2D4E",
+        "#5B21B6",
+        "#333355",
+        "#DDD6FE"
+      ],
+      "fonts": [
+        "Inter",
+        "Söhne"
+      ],
+      "backgroundColor": "#0A0A0A",
+      "style": "dark",
+      "primaryColor": "#7C3AED",
+      "accentColor": "#A78BFA",
+      "designMdUrl": "https://getdesign.md/superhuman/design-md"
+    },
+    {
+      "name": "Vercel",
+      "slug": "vercel",
+      "category": "Developer Tools & IDEs",
+      "vibe": "Black and white precision, Geist font",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#E5E5E5",
+        "#1A1A1A",
+        "#333333",
+        "#D4D4D4",
+        "#808080",
+        "#FAFAFA",
+        "#262626",
+        "#CCCCCC",
+        "#171717"
+      ],
+      "fonts": [
+        "Geist",
+        "Geist Mono"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#000000",
+      "accentColor": "#0070F3",
+      "designMdUrl": "https://getdesign.md/vercel/design-md"
+    },
+    {
+      "name": "Warp",
+      "slug": "warp",
+      "category": "Developer Tools & IDEs",
+      "vibe": "Dark IDE-like interface, block-based command UI",
+      "colors": [
+        "#01A252",
+        "#000000",
+        "#1A1A2E",
+        "#FFFFFF",
+        "#02D174",
+        "#333355",
+        "#3CBB78",
+        "#0A0A1A",
+        "#28284A",
+        "#E0FFE0",
+        "#00FF88",
+        "#4A4A6B"
+      ],
+      "fonts": [
+        "JetBrains Mono",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#01A252",
+      "accentColor": "#02D174",
+      "designMdUrl": "https://getdesign.md/warp/design-md"
+    },
+    {
+      "name": "ClickHouse",
+      "slug": "clickhouse",
+      "category": "Backend & DevOps",
+      "vibe": "Yellow-accented, technical documentation style",
+      "colors": [
+        "#FFCC00",
+        "#000000",
+        "#FFFFFF",
+        "#1A1A1A",
+        "#FFD633",
+        "#F5F5F5",
+        "#333333",
+        "#FFF3CC",
+        "#E5E500",
+        "#2D2D2D",
+        "#FCE588",
+        "#666600"
+      ],
+      "fonts": [
+        "Inter",
+        "JetBrains Mono"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#FFCC00",
+      "accentColor": "#E5E500",
+      "designMdUrl": "https://getdesign.md/clickhouse/design-md"
+    },
+    {
+      "name": "Composio",
+      "slug": "composio",
+      "category": "Backend & DevOps",
+      "vibe": "Modern dark with colorful integration icons",
+      "colors": [
+        "#0A0A0A",
+        "#1A1A2E",
+        "#6C63FF",
+        "#FF6B6B",
+        "#FFFFFF",
+        "#00CEC9",
+        "#FDCB6E",
+        "#333355",
+        "#A29BFE",
+        "#FF8A8A",
+        "#2D2D5E",
+        "#7C7CFF"
+      ],
+      "fonts": [
+        "Inter",
+        "Plus Jakarta Sans"
+      ],
+      "backgroundColor": "#0A0A0A",
+      "style": "dark",
+      "primaryColor": "#6C63FF",
+      "accentColor": "#00CEC9",
+      "designMdUrl": "https://getdesign.md/composio/design-md"
+    },
+    {
+      "name": "HashiCorp",
+      "slug": "hashicorp",
+      "category": "Backend & DevOps",
+      "vibe": "Enterprise-clean, black and white",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#7B42BC",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#E5E5E5",
+        "#6234A0",
+        "#D4D4D4",
+        "#333333",
+        "#8B5CF6",
+        "#CCCCCC",
+        "#5B21B6"
+      ],
+      "fonts": [
+        "Rubik",
+        "Inter"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#000000",
+      "accentColor": "#7B42BC",
+      "designMdUrl": "https://getdesign.md/hashicorp/design-md"
+    },
+    {
+      "name": "MongoDB",
+      "slug": "mongodb",
+      "category": "Backend & DevOps",
+      "vibe": "Green leaf branding, developer documentation focus",
+      "colors": [
+        "#00684A",
+        "#116149",
+        "#13AA52",
+        "#FFFFFF",
+        "#001E2C",
+        "#4DB33D",
+        "#F5F5F5",
+        "#013220",
+        "#2FCC71",
+        "#E8F5E9",
+        "#004D35",
+        "#C8E6C9"
+      ],
+      "fonts": [
+        "Inter",
+        "JetBrains Mono"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#00684A",
+      "accentColor": "#13AA52",
+      "designMdUrl": "https://getdesign.md/mongodb/design-md"
+    },
+    {
+      "name": "PostHog",
+      "slug": "posthog",
+      "category": "Backend & DevOps",
+      "vibe": "Playful hedgehog branding, developer-friendly dark UI",
+      "colors": [
+        "#1A1A1A",
+        "#F9BD2B",
+        "#FFFFFF",
+        "#2D2D2D",
+        "#FCDD57",
+        "#333333",
+        "#E5A800",
+        "#0A0A0A",
+        "#FFF3CD",
+        "#4D4D4D",
+        "#FFD700",
+        "#1A1A2E"
+      ],
+      "fonts": [
+        "Inter",
+        "Rubik"
+      ],
+      "backgroundColor": "#1A1A1A",
+      "style": "dark",
+      "primaryColor": "#F9BD2B",
+      "accentColor": "#FCDD57",
+      "designMdUrl": "https://getdesign.md/posthog/design-md"
+    },
+    {
+      "name": "Sanity",
+      "slug": "Sanity",
+      "category": "Backend & DevOps",
+      "vibe": "Red accent, content-first editorial layout",
+      "colors": [
+        "#F43F5E",
+        "#FFFFFF",
+        "#1A1A1A",
+        "#F5F5F5",
+        "#E11D48",
+        "#000000",
+        "#FB7185",
+        "#E5E5E5",
+        "#BE123C",
+        "#FDF2F8",
+        "#9F1239",
+        "#FFE4E6"
+      ],
+      "fonts": [
+        "Inter",
+        "IBM Plex Mono"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "editorial",
+      "primaryColor": "#F43F5E",
+      "accentColor": "#E11D48",
+      "designMdUrl": "https://getdesign.md/Sanity/design-md"
+    },
+    {
+      "name": "Sentry",
+      "slug": "sentry",
+      "category": "Backend & DevOps",
+      "vibe": "Dark dashboard, data-dense, pink-purple accent",
+      "colors": [
+        "#1B1B2F",
+        "#362D59",
+        "#A97BFF",
+        "#FFFFFF",
+        "#252240",
+        "#C4A1FF",
+        "#1A1A2E",
+        "#7C5CFC",
+        "#2D2D4E",
+        "#E0D5FF",
+        "#140F2E",
+        "#8B6FE8"
+      ],
+      "fonts": [
+        "Rubik",
+        "Inter"
+      ],
+      "backgroundColor": "#1B1B2F",
+      "style": "dark",
+      "primaryColor": "#A97BFF",
+      "accentColor": "#7C5CFC",
+      "designMdUrl": "https://getdesign.md/sentry/design-md"
+    },
+    {
+      "name": "Supabase",
+      "slug": "supabase",
+      "category": "Backend & DevOps",
+      "vibe": "Dark emerald theme, code-first",
+      "colors": [
+        "#1C1C1C",
+        "#3ECF8E",
+        "#FFFFFF",
+        "#2D2D2D",
+        "#2FAD6E",
+        "#0A0A0A",
+        "#66D9A0",
+        "#333333",
+        "#1A8C5A",
+        "#E8FFF0",
+        "#0E6B3E",
+        "#C6F6D5"
+      ],
+      "fonts": [
+        "Inter",
+        "JetBrains Mono"
+      ],
+      "backgroundColor": "#1C1C1C",
+      "style": "dark",
+      "primaryColor": "#3ECF8E",
+      "accentColor": "#2FAD6E",
+      "designMdUrl": "https://getdesign.md/supabase/design-md"
+    },
+    {
+      "name": "Cal.com",
+      "slug": "cal-com",
+      "category": "Productivity & SaaS",
+      "vibe": "Clean neutral UI, developer-oriented simplicity",
+      "colors": [
+        "#292929",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#E5E5E5",
+        "#1A1A1A",
+        "#D4D4D4",
+        "#333333",
+        "#FAFAFA",
+        "#808080",
+        "#0A0A0A",
+        "#262626",
+        "#CCCCCC"
+      ],
+      "fonts": [
+        "Inter",
+        "Cal Sans"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#292929",
+      "accentColor": "#0A0A0A",
+      "designMdUrl": "https://getdesign.md/cal-com/design-md"
+    },
+    {
+      "name": "Intercom",
+      "slug": "intercom",
+      "category": "Productivity & SaaS",
+      "vibe": "Friendly blue palette, conversational UI patterns",
+      "colors": [
+        "#1F8DED",
+        "#FFFFFF",
+        "#0061FF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#E8F4FD",
+        "#0052CC",
+        "#333333",
+        "#73B9F5",
+        "#0D47A1",
+        "#E5E5E5",
+        "#4A9BE8"
+      ],
+      "fonts": [
+        "Inter",
+        "Söhne"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#1F8DED",
+      "accentColor": "#0061FF",
+      "designMdUrl": "https://getdesign.md/intercom/design-md"
+    },
+    {
+      "name": "Linear",
+      "slug": "linear",
+      "category": "Productivity & SaaS",
+      "vibe": "Ultra-minimal, precise, purple accent",
+      "colors": [
+        "#0A0A0A",
+        "#1A1A2E",
+        "#5E6AD2",
+        "#FFFFFF",
+        "#2D2D4E",
+        "#7B7FFF",
+        "#000000",
+        "#E0E0FF",
+        "#333355",
+        "#4A4AFF",
+        "#16162A",
+        "#C4C1FF"
+      ],
+      "fonts": [
+        "Inter",
+        "Söhne"
+      ],
+      "backgroundColor": "#0A0A0A",
+      "style": "dark",
+      "primaryColor": "#5E6AD2",
+      "accentColor": "#7B7FFF",
+      "designMdUrl": "https://getdesign.md/linear/design-md"
+    },
+    {
+      "name": "Mintlify",
+      "slug": "mintlify",
+      "category": "Productivity & SaaS",
+      "vibe": "Clean, green-accented, reading-optimized",
+      "colors": [
+        "#1DB954",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#000000",
+        "#E8F8EE",
+        "#19A34A",
+        "#333333",
+        "#4ADE80",
+        "#E5E5E5",
+        "#15803D",
+        "#DCFCE7"
+      ],
+      "fonts": [
+        "Inter",
+        "JetBrains Mono"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#1DB954",
+      "accentColor": "#19A34A",
+      "designMdUrl": "https://getdesign.md/mintlify/design-md"
+    },
+    {
+      "name": "Notion",
+      "slug": "notion",
+      "category": "Productivity & SaaS",
+      "vibe": "Warm minimalism, serif headings, soft surfaces",
+      "colors": [
+        "#FFFFFF",
+        "#F5F5F5",
+        "#000000",
+        "#E5E5E5",
+        "#37352F",
+        "#EBEBEB",
+        "#9B9A97",
+        "#DFE1E6",
+        "#F7F6F3",
+        "#443F36",
+        "#D3D1CB",
+        "#2C2C2C"
+      ],
+      "fonts": [
+        "Notion Serif",
+        "Inter"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "editorial",
+      "primaryColor": "#000000",
+      "accentColor": "#37352F",
+      "designMdUrl": "https://getdesign.md/notion/design-md"
+    },
+    {
+      "name": "Resend",
+      "slug": "resend",
+      "category": "Productivity & SaaS",
+      "vibe": "Minimal dark theme, monospace accents",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#D4D4D4",
+        "#333333",
+        "#808080",
+        "#E5E5E5",
+        "#0A0A0A",
+        "#FAFAFA",
+        "#262626",
+        "#CCCCCC"
+      ],
+      "fonts": [
+        "JetBrains Mono",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#FFFFFF",
+      "accentColor": "#D4D4D4",
+      "designMdUrl": "https://getdesign.md/resend/design-md"
+    },
+    {
+      "name": "Zapier",
+      "slug": "zapier",
+      "category": "Productivity & SaaS",
+      "vibe": "Warm orange, friendly illustration-driven",
+      "colors": [
+        "#FF4F00",
+        "#FFFFFF",
+        "#FF6D33",
+        "#F5F5F5",
+        "#000000",
+        "#FFF3EB",
+        "#E54400",
+        "#1A1A1A",
+        "#FF8533",
+        "#FFE0CC",
+        "#CC3D00",
+        "#333333"
+      ],
+      "fonts": [
+        "Inter",
+        "GT Walsheim"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#FF4F00",
+      "accentColor": "#FF6D33",
+      "designMdUrl": "https://getdesign.md/zapier/design-md"
+    },
+    {
+      "name": "Airtable",
+      "slug": "airtable",
+      "category": "Design & Creative Tools",
+      "vibe": "Colorful, friendly, structured data aesthetic",
+      "colors": [
+        "#18BFFF",
+        "#FCB400",
+        "#18CCCC",
+        "#FF6F61",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#166BFF",
+        "#7C5CFC",
+        "#E5E5E5",
+        "#166BFF",
+        "#2D3748"
+      ],
+      "fonts": [
+        "Inter",
+        "Airtable Symbols"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#18BFFF",
+      "accentColor": "#FCB400",
+      "designMdUrl": "https://getdesign.md/airtable/design-md"
+    },
+    {
+      "name": "Clay",
+      "slug": "clay",
+      "category": "Design & Creative Tools",
+      "vibe": "Organic shapes, soft gradients, art-directed layout",
+      "colors": [
+        "#5E6AD2",
+        "#7B61FF",
+        "#FF7F7F",
+        "#FFFFFF",
+        "#F5F0FF",
+        "#E8E0FF",
+        "#1A1A2E",
+        "#C4B5FD",
+        "#333355",
+        "#FFB3B3",
+        "#FF6F6F",
+        "#0A0A1A"
+      ],
+      "fonts": [
+        "GT America",
+        "Inter"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#5E6AD2",
+      "accentColor": "#7B61FF",
+      "designMdUrl": "https://getdesign.md/clay/design-md"
+    },
+    {
+      "name": "Figma",
+      "slug": "figma",
+      "category": "Design & Creative Tools",
+      "vibe": "Vibrant multi-color, playful yet professional",
+      "colors": [
+        "#F24E1E",
+        "#A259FF",
+        "#1ABCFE",
+        "#0ACF83",
+        "#FF7262",
+        "#FFFFFF",
+        "#000000",
+        "#F5F5F5",
+        "#E6E6E6",
+        "#9B59B6",
+        "#2ECC71",
+        "#3498DB"
+      ],
+      "fonts": [
+        "Inter",
+        "Roboto"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#F24E1E",
+      "accentColor": "#A259FF",
+      "designMdUrl": "https://getdesign.md/figma/design-md"
+    },
+    {
+      "name": "Framer",
+      "slug": "framer",
+      "category": "Design & Creative Tools",
+      "vibe": "Bold black and blue, motion-first, design-forward",
+      "colors": [
+        "#000000",
+        "#0055FF",
+        "#FFFFFF",
+        "#1A1A1A",
+        "#0066FF",
+        "#E5E5E5",
+        "#0044CC",
+        "#333333",
+        "#3388FF",
+        "#F5F5F5",
+        "#002E99",
+        "#66AAFF"
+      ],
+      "fonts": [
+        "Inter",
+        "Geist"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#0055FF",
+      "accentColor": "#3388FF",
+      "designMdUrl": "https://getdesign.md/framer/design-md"
+    },
+    {
+      "name": "Miro",
+      "slug": "miro",
+      "category": "Design & Creative Tools",
+      "vibe": "Bright yellow accent, infinite canvas aesthetic",
+      "colors": [
+        "#FFD02F",
+        "#FFFFFF",
+        "#F5C800",
+        "#F5F5F5",
+        "#000000",
+        "#FFF3CD",
+        "#E5B800",
+        "#1A1A1A",
+        "#FFE066",
+        "#E5E5E5",
+        "#CC9F00",
+        "#333333"
+      ],
+      "fonts": [
+        "Inter",
+        "Roboto"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#FFD02F",
+      "accentColor": "#F5C800",
+      "designMdUrl": "https://getdesign.md/miro/design-md"
+    },
+    {
+      "name": "Webflow",
+      "slug": "webflow",
+      "category": "Design & Creative Tools",
+      "vibe": "Blue-accented, polished marketing site aesthetic",
+      "colors": [
+        "#4353FF",
+        "#FFFFFF",
+        "#000000",
+        "#3B4AE0",
+        "#F5F5F5",
+        "#2D3ACC",
+        "#1A1A1A",
+        "#E8EAFF",
+        "#E5E5E5",
+        "#6577FF",
+        "#333333",
+        "#D1D5FF"
+      ],
+      "fonts": [
+        "Inter",
+        "GT Walsheim"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#4353FF",
+      "accentColor": "#6577FF",
+      "designMdUrl": "https://getdesign.md/webflow/design-md"
+    },
+    {
+      "name": "Binance",
+      "slug": "binance",
+      "category": "Fintech & Crypto",
+      "vibe": "Bold Binance Yellow on monochrome, trading-floor urgency",
+      "colors": [
+        "#F0B90B",
+        "#000000",
+        "#1A1A1A",
+        "#FFFFFF",
+        "#FCD535",
+        "#333333",
+        "#D4A50A",
+        "#F5F5F5",
+        "#B8960A",
+        "#E5E5E5",
+        "#0D0D0D",
+        "#2D2D2D"
+      ],
+      "fonts": [
+        "Inter",
+        "Space Grotesk"
+      ],
+      "backgroundColor": "#0A0A0A",
+      "style": "dark",
+      "primaryColor": "#F0B90B",
+      "accentColor": "#FCD535",
+      "designMdUrl": "https://getdesign.md/binance/design-md"
+    },
+    {
+      "name": "Coinbase",
+      "slug": "coinbase",
+      "category": "Fintech & Crypto",
+      "vibe": "Clean blue identity, trust-focused, institutional feel",
+      "colors": [
+        "#0052FF",
+        "#FFFFFF",
+        "#0041CC",
+        "#F5F5F5",
+        "#000000",
+        "#E8F0FE",
+        "#1A1A1A",
+        "#6699FF",
+        "#333333",
+        "#003DB3",
+        "#E5E5E5",
+        "#0066FF"
+      ],
+      "fonts": [
+        "Inter",
+        "Coinbase Sans"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#0052FF",
+      "accentColor": "#0041CC",
+      "designMdUrl": "https://getdesign.md/coinbase/design-md"
+    },
+    {
+      "name": "Kraken",
+      "slug": "kraken",
+      "category": "Fintech & Crypto",
+      "vibe": "Purple-accented dark UI, data-dense dashboards",
+      "colors": [
+        "#1A1A2E",
+        "#7B5EA7",
+        "#FFFFFF",
+        "#2D2D4E",
+        "#9B7FC4",
+        "#000000",
+        "#5C4A8A",
+        "#333355",
+        "#6A5CA0",
+        "#E0D5FF",
+        "#4A3D6E",
+        "#C4B5FD"
+      ],
+      "fonts": [
+        "Inter",
+        "Space Grotesk"
+      ],
+      "backgroundColor": "#0A0A1A",
+      "style": "dark",
+      "primaryColor": "#7B5EA7",
+      "accentColor": "#9B7FC4",
+      "designMdUrl": "https://getdesign.md/kraken/design-md"
+    },
+    {
+      "name": "Mastercard",
+      "slug": "mastercard",
+      "category": "Fintech & Crypto",
+      "vibe": "Warm cream canvas, orbital pill shapes, editorial warmth",
+      "colors": [
+        "#FF5F00",
+        "#EB001B",
+        "#F9F1EC",
+        "#FFFFFF",
+        "#000000",
+        "#F5E6D8",
+        "#CC4D00",
+        "#1A1A1A",
+        "#FF8533",
+        "#E5D5C5",
+        "#B84400",
+        "#333333"
+      ],
+      "fonts": [
+        "Inter",
+        "Rotis Sans Serif"
+      ],
+      "backgroundColor": "#F9F1EC",
+      "style": "editorial",
+      "primaryColor": "#FF5F00",
+      "accentColor": "#EB001B",
+      "designMdUrl": "https://getdesign.md/mastercard/design-md"
+    },
+    {
+      "name": "Revolut",
+      "slug": "revolut",
+      "category": "Fintech & Crypto",
+      "vibe": "Sleek dark interface, gradient cards, fintech precision",
+      "colors": [
+        "#000000",
+        "#1A1A2E",
+        "#0075EB",
+        "#0055CC",
+        "#FFFFFF",
+        "#2D2D4E",
+        "#3399FF",
+        "#0A0A1A",
+        "#66B3FF",
+        "#333355",
+        "#003D99",
+        "#99CCFF"
+      ],
+      "fonts": [
+        "Inter",
+        "Space Grotesk"
+      ],
+      "backgroundColor": "#0A0A0A",
+      "style": "dark",
+      "primaryColor": "#0075EB",
+      "accentColor": "#3399FF",
+      "designMdUrl": "https://getdesign.md/revolut/design-md"
+    },
+    {
+      "name": "Stripe",
+      "slug": "stripe",
+      "category": "Fintech & Crypto",
+      "vibe": "Signature purple gradients, weight-300 elegance",
+      "colors": [
+        "#635BFF",
+        "#7A73FF",
+        "#FFFFFF",
+        "#000000",
+        "#5349E0",
+        "#F5F5F5",
+        "#8C85FF",
+        "#1A1A1A",
+        "#A29BFE",
+        "#E5E5E5",
+        "#4338CA",
+        "#C4B5FD"
+      ],
+      "fonts": [
+        "Inter",
+        "Camphor"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#635BFF",
+      "accentColor": "#7A73FF",
+      "designMdUrl": "https://getdesign.md/stripe/design-md"
+    },
+    {
+      "name": "Wise",
+      "slug": "wise",
+      "category": "Fintech & Crypto",
+      "vibe": "Bright green accent, friendly and clear",
+      "colors": [
+        "#9FE870",
+        "#FFFFFF",
+        "#00B388",
+        "#F5F5F5",
+        "#000000",
+        "#E8F8EE",
+        "#008C6D",
+        "#1A1A1A",
+        "#7CD95E",
+        "#E5E5E5",
+        "#B8F090",
+        "#333333"
+      ],
+      "fonts": [
+        "Inter",
+        "Wise Sans"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#00B388",
+      "accentColor": "#9FE870",
+      "designMdUrl": "https://getdesign.md/wise/design-md"
+    },
+    {
+      "name": "Airbnb",
+      "slug": "airbnb",
+      "category": "E-commerce & Retail",
+      "vibe": "Warm coral accent, photography-driven, rounded UI",
+      "colors": [
+        "#FF385C",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#E31C5F",
+        "#000000",
+        "#FF5A7E",
+        "#E5E5E5",
+        "#D70466",
+        "#FFE0E6",
+        "#BD0036",
+        "#333333"
+      ],
+      "fonts": [
+        "Circular",
+        "Inter"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#FF385C",
+      "accentColor": "#E31C5F",
+      "designMdUrl": "https://getdesign.md/airbnb/design-md"
+    },
+    {
+      "name": "Meta",
+      "slug": "meta",
+      "category": "E-commerce & Retail",
+      "vibe": "Photography-first, binary light/dark surfaces, Meta Blue CTAs",
+      "colors": [
+        "#0081FB",
+        "#000000",
+        "#FFFFFF",
+        "#1877F2",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#659ED6",
+        "#E5E5E5",
+        "#0A66C2",
+        "#333333",
+        "#4A90D9",
+        "#CCCCCC"
+      ],
+      "fonts": [
+        "Optimistic Display",
+        "Inter"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#0081FB",
+      "accentColor": "#1877F2",
+      "designMdUrl": "https://getdesign.md/meta/design-md"
+    },
+    {
+      "name": "Nike",
+      "slug": "nike",
+      "category": "E-commerce & Retail",
+      "vibe": "Monochrome UI, massive uppercase Futura, full-bleed photography",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#E5E5E5",
+        "#333333",
+        "#D4D4D4",
+        "#808080",
+        "#FAFAFA",
+        "#262626",
+        "#CCCCCC",
+        "#171717"
+      ],
+      "fonts": [
+        "Futura",
+        "Nike Helvetica"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#000000",
+      "accentColor": "#FAFAFA",
+      "designMdUrl": "https://getdesign.md/nike/design-md"
+    },
+    {
+      "name": "Shopify",
+      "slug": "shopify",
+      "category": "E-commerce & Retail",
+      "vibe": "Dark-first cinematic, neon green accent, ultra-light display type",
+      "colors": [
+        "#0A0A0A",
+        "#00FF88",
+        "#1A1A1A",
+        "#FFFFFF",
+        "#00CC6A",
+        "#333333",
+        "#95BF47",
+        "#0D0D0D",
+        "#00FFAA",
+        "#5E8E3E",
+        "#2D2D2D",
+        "#E0FFE0"
+      ],
+      "fonts": [
+        "Inter",
+        "Shopify Sans"
+      ],
+      "backgroundColor": "#0A0A0A",
+      "style": "dark",
+      "primaryColor": "#00FF88",
+      "accentColor": "#95BF47",
+      "designMdUrl": "https://getdesign.md/shopify/design-md"
+    },
+    {
+      "name": "Apple",
+      "slug": "apple",
+      "category": "Media & Consumer Tech",
+      "vibe": "Premium white space, SF Pro, cinematic imagery",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1D1D1F",
+        "#86868B",
+        "#E5E5E5",
+        "#0071E3",
+        "#D2D2D7",
+        "#A1A1A6",
+        "#FAFAFA",
+        "#333333",
+        "#6E6E73"
+      ],
+      "fonts": [
+        "SF Pro Display",
+        "SF Pro Text"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#000000",
+      "accentColor": "#0071E3",
+      "designMdUrl": "https://getdesign.md/apple/design-md"
+    },
+    {
+      "name": "IBM",
+      "slug": "ibm",
+      "category": "Media & Consumer Tech",
+      "vibe": "Carbon design system, structured blue palette",
+      "colors": [
+        "#0F62FE",
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#4589FF",
+        "#E5E5E5",
+        "#0043CE",
+        "#333333",
+        "#78A9FF",
+        "#D4D4D4",
+        "#002D9C"
+      ],
+      "fonts": [
+        "IBM Plex Sans",
+        "IBM Plex Mono"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#0F62FE",
+      "accentColor": "#4589FF",
+      "designMdUrl": "https://getdesign.md/ibm/design-md"
+    },
+    {
+      "name": "NVIDIA",
+      "slug": "nvidia",
+      "category": "Media & Consumer Tech",
+      "vibe": "Green-black energy, technical power aesthetic",
+      "colors": [
+        "#76B900",
+        "#000000",
+        "#FFFFFF",
+        "#1A1A1A",
+        "#8DC63F",
+        "#333333",
+        "#5C940D",
+        "#F5F5F5",
+        "#A3D977",
+        "#E5E5E5",
+        "#4A7A00",
+        "#D4F0B0"
+      ],
+      "fonts": [
+        "Inter",
+        "NVIDIA Sans"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#76B900",
+      "accentColor": "#8DC63F",
+      "designMdUrl": "https://getdesign.md/nvidia/design-md"
+    },
+    {
+      "name": "Pinterest",
+      "slug": "pinterest",
+      "category": "Media & Consumer Tech",
+      "vibe": "Red accent, masonry grid, image-first",
+      "colors": [
+        "#E60023",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#CC001F",
+        "#000000",
+        "#FF4D6A",
+        "#E5E5E5",
+        "#B3001B",
+        "#FFE0E6",
+        "#990015",
+        "#333333"
+      ],
+      "fonts": [
+        "Inter",
+        "Pinterest Sans"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#E60023",
+      "accentColor": "#FF4D6A",
+      "designMdUrl": "https://getdesign.md/pinterest/design-md"
+    },
+    {
+      "name": "PlayStation",
+      "slug": "playstation",
+      "category": "Media & Consumer Tech",
+      "vibe": "Three-surface channel layout, cyan hover-scale interaction",
+      "colors": [
+        "#000000",
+        "#0070D1",
+        "#FFFFFF",
+        "#1A1A1A",
+        "#004A8F",
+        "#F5F5F5",
+        "#003A73",
+        "#333333",
+        "#0080FF",
+        "#E5E5E5",
+        "#002D59",
+        "#4DA6FF"
+      ],
+      "fonts": [
+        "Inter",
+        "SCE-PS3 Rodin LATIN"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#0070D1",
+      "accentColor": "#0080FF",
+      "designMdUrl": "https://getdesign.md/playstation/design-md"
+    },
+    {
+      "name": "SpaceX",
+      "slug": "spacex",
+      "category": "Media & Consumer Tech",
+      "vibe": "Stark black and white, full-bleed imagery, futuristic",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#E5E5E5",
+        "#1A1A1A",
+        "#D4D4D4",
+        "#333333",
+        "#808080",
+        "#FAFAFA",
+        "#262626",
+        "#CCCCCC",
+        "#171717"
+      ],
+      "fonts": [
+        "Space Grotesk",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#FFFFFF",
+      "accentColor": "#D4D4D4",
+      "designMdUrl": "https://getdesign.md/spacex/design-md"
+    },
+    {
+      "name": "Spotify",
+      "slug": "spotify",
+      "category": "Media & Consumer Tech",
+      "vibe": "Vibrant green on dark, bold type, album-art-driven",
+      "colors": [
+        "#1DB954",
+        "#000000",
+        "#1A1A1A",
+        "#FFFFFF",
+        "#19A34A",
+        "#333333",
+        "#1ED760",
+        "#0D0D0D",
+        "#535353",
+        "#2D2D2D",
+        "#169C46",
+        "#B3B3B3"
+      ],
+      "fonts": [
+        "Circular",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#1DB954",
+      "accentColor": "#1ED760",
+      "designMdUrl": "https://getdesign.md/spotify/design-md"
+    },
+    {
+      "name": "The Verge",
+      "slug": "the-verge",
+      "category": "Media & Consumer Tech",
+      "vibe": "Acid-mint and ultraviolet accents, Manuka display type",
+      "colors": [
+        "#E8FF47",
+        "#7B61FF",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#D4FF80",
+        "#5E4DB2",
+        "#000000",
+        "#F0FF8A",
+        "#E5E5E5",
+        "#A29BFE",
+        "#333333"
+      ],
+      "fonts": [
+        "Manuka",
+        "Inter"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "editorial",
+      "primaryColor": "#E8FF47",
+      "accentColor": "#7B61FF",
+      "designMdUrl": "https://getdesign.md/the-verge/design-md"
+    },
+    {
+      "name": "Uber",
+      "slug": "uber",
+      "category": "Media & Consumer Tech",
+      "vibe": "Bold black and white, tight type, urban energy",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#E5E5E5",
+        "#333333",
+        "#D4D4D4",
+        "#808080",
+        "#FAFAFA",
+        "#262626",
+        "#CCCCCC",
+        "#171717"
+      ],
+      "fonts": [
+        "Uber Move Text",
+        "Uber Move"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "minimal",
+      "primaryColor": "#000000",
+      "accentColor": "#276EF1",
+      "designMdUrl": "https://getdesign.md/uber/design-md"
+    },
+    {
+      "name": "Vodafone",
+      "slug": "vodafone",
+      "category": "Media & Consumer Tech",
+      "vibe": "Monumental uppercase display, Vodafone Red chapter bands",
+      "colors": [
+        "#E60000",
+        "#000000",
+        "#FFFFFF",
+        "#CC0000",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#FF3333",
+        "#E5E5E5",
+        "#B30000",
+        "#FFE0E0",
+        "#990000",
+        "#333333"
+      ],
+      "fonts": [
+        "Vodafone Regular",
+        "Inter"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "editorial",
+      "primaryColor": "#E60000",
+      "accentColor": "#CC0000",
+      "designMdUrl": "https://getdesign.md/vodafone/design-md"
+    },
+    {
+      "name": "WIRED",
+      "slug": "wired",
+      "category": "Media & Consumer Tech",
+      "vibe": "Paper-white broadsheet density, custom serif, ink-blue links",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#F5F5F5",
+        "#0A80FF",
+        "#1A1A1A",
+        "#E5E5E5",
+        "#0066CC",
+        "#333333",
+        "#3399FF",
+        "#D4D4D4",
+        "#004C99",
+        "#808080"
+      ],
+      "fonts": [
+        "Retina",
+        "Wiener"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "editorial",
+      "primaryColor": "#000000",
+      "accentColor": "#0A80FF",
+      "designMdUrl": "https://getdesign.md/wired/design-md"
+    },
+    {
+      "name": "BMW",
+      "slug": "bmw",
+      "category": "Automotive",
+      "vibe": "Dark premium surfaces, precise German engineering aesthetic",
+      "colors": [
+        "#1C69D3",
+        "#000000",
+        "#FFFFFF",
+        "#1A1A1A",
+        "#666666",
+        "#F5F5F5",
+        "#0D4E8C",
+        "#E5E5E5",
+        "#0A3366",
+        "#D4D4D4",
+        "#333333",
+        "#99C2EB"
+      ],
+      "fonts": [
+        "BMW Type",
+        "Inter"
+      ],
+      "backgroundColor": "#0A0A0A",
+      "style": "dark",
+      "primaryColor": "#1C69D3",
+      "accentColor": "#666666",
+      "designMdUrl": "https://getdesign.md/bmw/design-md"
+    },
+    {
+      "name": "Bugatti",
+      "slug": "bugatti",
+      "category": "Automotive",
+      "vibe": "Cinema-black canvas, monochrome austerity, monumental display type",
+      "colors": [
+        "#000000",
+        "#1A1A1A",
+        "#FFFFFF",
+        "#333333",
+        "#D4D4D4",
+        "#808080",
+        "#F5F5F5",
+        "#0A0A0A",
+        "#E5E5E5",
+        "#262626",
+        "#CCCCCC",
+        "#4D4D4D"
+      ],
+      "fonts": [
+        "Bugatti Type",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#FFFFFF",
+      "accentColor": "#D4D4D4",
+      "designMdUrl": "https://getdesign.md/bugatti/design-md"
+    },
+    {
+      "name": "Ferrari",
+      "slug": "ferrari",
+      "category": "Automotive",
+      "vibe": "Chiaroscuro black-white editorial, Ferrari Red with extreme sparseness",
+      "colors": [
+        "#000000",
+        "#FF2800",
+        "#FFFFFF",
+        "#1A1A1A",
+        "#CC2000",
+        "#E5E5E5",
+        "#B31A00",
+        "#F5F5F5",
+        "#D4D4D4",
+        "#333333",
+        "#991500",
+        "#808080"
+      ],
+      "fonts": [
+        "Ferrari Sans",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#FF2800",
+      "accentColor": "#CC2000",
+      "designMdUrl": "https://getdesign.md/ferrari/design-md"
+    },
+    {
+      "name": "Lamborghini",
+      "slug": "lamborghini",
+      "category": "Automotive",
+      "vibe": "True black cathedral, gold accent, LamboType custom Neo-Grotesk",
+      "colors": [
+        "#000000",
+        "#C5A55A",
+        "#1A1A1A",
+        "#FFFFFF",
+        "#D4B76A",
+        "#333333",
+        "#B8944D",
+        "#E5D5B0",
+        "#0A0A0A",
+        "#A07D3E",
+        "#E8D5A3",
+        "#806030"
+      ],
+      "fonts": [
+        "LamboType",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#C5A55A",
+      "accentColor": "#D4B76A",
+      "designMdUrl": "https://getdesign.md/lamborghini/design-md"
+    },
+    {
+      "name": "Renault",
+      "slug": "renault",
+      "category": "Automotive",
+      "vibe": "Vivid aurora gradients, NouvelR proprietary typeface, zero-radius buttons",
+      "colors": [
+        "#FFCC00",
+        "#000000",
+        "#FFFFFF",
+        "#E5B800",
+        "#1A1A1A",
+        "#FFD633",
+        "#CC9F00",
+        "#F5F5F5",
+        "#B38F00",
+        "#E5E5E5",
+        "#FFF3CD",
+        "#333333"
+      ],
+      "fonts": [
+        "NouvelR",
+        "Inter"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "style": "colorful",
+      "primaryColor": "#FFCC00",
+      "accentColor": "#E5B800",
+      "designMdUrl": "https://getdesign.md/renault/design-md"
+    },
+    {
+      "name": "Tesla",
+      "slug": "tesla",
+      "category": "Automotive",
+      "vibe": "Radical subtraction, cinematic full-viewport photography, Universal Sans",
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#CC0000",
+        "#F5F5F5",
+        "#1A1A1A",
+        "#E5E5E5",
+        "#333333",
+        "#D4D4D4",
+        "#808080",
+        "#FAFAFA",
+        "#262626",
+        "#CCCCCC"
+      ],
+      "fonts": [
+        "Universal Sans",
+        "Inter"
+      ],
+      "backgroundColor": "#000000",
+      "style": "dark",
+      "primaryColor": "#CC0000",
+      "accentColor": "#FFFFFF",
+      "designMdUrl": "https://getdesign.md/tesla/design-md"
+    }
+  ]
+}
