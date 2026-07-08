@@ -1,22 +1,20 @@
 ---
-Task ID: 1
+Task ID: 2
 Agent: Super Z (Main)
-Task: Build Next.js 14 showcase website for VoltAgent/awesome-claude-design with 68 designs
+Task: Add OG image generation, /design/[slug] page, and download API
 
 Work Log:
-- Initialized fullstack dev environment and created GitHub repo at ansaribilal14/design-showcase
-- Fetched and parsed the awesome-claude-design README to catalog all 68 designs across 9 categories
-- Built designs.json with brand-accurate color palettes, typography tokens, and design metadata
-- Transformed data to match existing page component's DesignTokens interface
-- Verified existing page.tsx (798 lines) with TopNav, SideNav, Hero, Stats, FilterToolbar, DesignCard, DesignDetailPanel, SubmitModal, Footer
-- Placed designs.json in public/data/ for client-side fetch
-- Agent-browser verified: all 68 cards render with live token previews
-- Tested: dark mode toggle, search ("Stripe"), category filter (Backend → 8 results), style filter (Dark → 4 results)
-- Tested: detail panel with Preview/Tokens/Download tabs, color swatches, typography info
-- Pushed all commits to GitHub
+- Created /api/og/[slug] route — generates 1200x630 SVG OG images per design using their own tokens (bg, primary, accent, fonts, radius). Includes mini browser frame UI mockup with the design's colors.
+- Created /api/download/[slug] route — fetches DESIGN.md from getdesign.md upstream, serves as downloadable .md file with proper Content-Disposition headers.
+- Created /design/[slug] page with generateStaticParams for all 68 designs, generateMetadata with OG image URLs.
+- Created /design/[slug]/client.tsx with 4 tabs: Preview (mini token preview), Tokens (color swatches with copy, typography, radius), DESIGN.md (fetched via download API, displayed in pre block with copy-all), Download (direct download button + npx CLI command).
+- Updated homepage DesignCard to be an <a> tag navigating to /design/[slug] instead of opening slide-in panel.
+- Added OG meta tags (openGraph, twitter) to root layout.
+- Fixed import paths (changed from @/../../src/data to @/data for all new routes).
+- Fixed src/data/designs.json to use transformed format with tokens objects.
+- Agent-browser verified: iframe loads getdesign.md preview, all 4 tabs work, OG API returns SVG, download API returns markdown, homepage cards navigate correctly.
 
 Stage Summary:
-- Full showcase site live at localhost:3000 with all 68 designs
-- Git repo: https://github.com/ansaribilal14/design-showcase
-- All core interactions verified via agent-browser
-- Data: public/data/designs.json (68 entries, 9 categories)
+- 3 new API/page routes: /api/og/[slug], /api/download/[slug], /design/[slug]
+- All 68 designs have dedicated pages with OG images
+- Git pushed: https://github.com/ansaribilal14/design-showcase
