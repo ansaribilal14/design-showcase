@@ -54,3 +54,4 @@ server.log
 /skills/tool-results/
 scripts/repo_readme.json
 scripts/readme_raw.json
+download/\nscripts/readme_raw.json\nscripts/repo_readme.json

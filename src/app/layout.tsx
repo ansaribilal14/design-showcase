@@ -22,9 +22,24 @@ export const metadata: Metadata = {
     "Claude Design",
     "UI kits",
     "design tokens",
+    "awesome-claude-design",
+    "design system inspiration",
   ],
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>",
+  },
+  openGraph: {
+    title: "Design Showcase — 68 Production-Ready Design Systems",
+    description:
+      "Browse 68 production-ready design system inspirations. Each DESIGN.md scaffolds a full UI in Claude Design.",
+    type: "website",
+    siteName: "Design Showcase",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Design Showcase — 68 Production-Ready Design Systems",
+    description:
+      "Browse 68 production-ready design system inspirations. Each DESIGN.md scaffolds a full UI in Claude Design.",
   },
 };
 

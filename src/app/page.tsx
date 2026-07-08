@@ -351,16 +351,15 @@ function isLightColor(hex: string): boolean {
 function DesignCard({
   design,
   darkMode,
-  onSelect,
 }: {
   design: Design;
   darkMode: boolean;
-  onSelect: (d: Design) => void;
+  onSelect?: (d: Design) => void;
 }) {
   return (
-    <div
-      className="astryx-card overflow-hidden cursor-pointer group"
-      onClick={() => onSelect(design)}
+    <a
+      href={`/design/${design.slug}`}
+      className="astryx-card overflow-hidden cursor-pointer group block"
     >
       {/* Preview strip */}
       <div className="design-preview-strip relative" style={{ transform: "scale(1)", transition: "transform 0.2s ease" }}>
@@ -400,7 +399,7 @@ function DesignCard({
           <span className="text-[11px] text-muted-foreground">{design.style}</span>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -756,7 +755,6 @@ export default function HomePage() {
                   key={design.id}
                   design={design}
                   darkMode={darkMode}
-                  onSelect={setSelectedDesign}
                 />
               ))}
             </div>
